@@ -5,7 +5,7 @@ This is a stateless auth library for koa.  If there is no `Authorization` header
 ##Usage
 
 ```
-var statelessauth = require('./statelessauth/statelessauth.js');
+var statelessauth = require('statelessauth');
 
 var validator = {
     validate: function (token) {
