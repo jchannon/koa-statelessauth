@@ -21,7 +21,7 @@ var validator = {
 };
 
 var statelessauthOptions = {
-    ignorePaths: ["/", "/secure"]
+    ignorePaths: ["/", "/nonsecure"]
 };
 
 app.use(statelessauth(validator, statelessauthOptions));
