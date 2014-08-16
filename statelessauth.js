@@ -15,11 +15,18 @@ function statelessauth(validator) {
             return;
         }
 
-        if (!validator.validate(authheader)) {
+        var claims = validator.validate(authheader);
+
+        if (!claims) {
             this.status = 401;
             console.log('validator failed');
             return;
         }
+
+        this.user = {};
+        this.user.name = claims.name;
+        this.user.email = claims.email;
+        this.user.role = claims.role;
 
         yield next;
     }

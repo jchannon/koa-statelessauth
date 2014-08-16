@@ -10,11 +10,22 @@ var statelessauth = require('statelessauth');
 var validator = {
     validate: function (token) {
         if (token === '123') {
-            return true;
+            return;
         }
-        return false;
+        return {
+            "name": "bob",
+            "role": "admin",
+            "email": "bob@acme.com"
+        };
     }
 };
 
 app.use(statelessauth(validator));
+
+app.use(function * (next) {
+    console.log(this.user.name);
+    console.log(this.user.email);
+    console.log(this.user.role);
+    yield next;
+});
 ```
