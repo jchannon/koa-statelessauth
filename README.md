@@ -1,6 +1,6 @@
 #Koa StatelessAuth
 
-This is a stateless auth library for koa.  If there is no `Authorization` header or if is empty it will return `401` status code.  The library accepts a validation object with a `validate` function. Pass in your own object to determine how it validates.
+This is a stateless auth library for `koa`.  If there is no `Authorization` header or if is empty it will return `401` status code.  The library accepts a validator object with a `validate` function. Pass in your own object to determine how it validates.  You can also pass in an optional `options` object that can define paths to ignore and therefore `yield` to the next function without validating the request.
 
 ##Usage
 
@@ -20,7 +20,11 @@ var validator = {
     }
 };
 
-app.use(statelessauth(validator));
+var statelessauthOptions = {
+    ignorePaths: ["/", "/secure"]
+};
+
+app.use(statelessauth(validator, statelessauthOptions));
 
 app.use(function * (next) {
     console.log(this.user.name);
