@@ -1,0 +1,28 @@
+{
+    "name": "koa-statelessauth",
+    "version": "1.0.0",
+    "description": "This is a stateless auth library for koa.  If there is no `Authorization` header or if is empty it will return `401` status code.  The library accepts a validation object with a `validate` function. Pass in your own object to determine how it validates.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/jchannon/koa-statelessauth.git"
+    },
+    "keywords": [
+    "koa",
+    "authorization",
+    "token",
+    "stateless",
+    "auth",
+    "stateless",
+    "auth"
+  ],
+    "author": "Jonathan Channon",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jchannon/koa-statelessauth/issues"
+    },
+    "homepage": "https://github.com/jchannon/koa-statelessauth"
+}
