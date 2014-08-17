@@ -27,9 +27,11 @@ var statelessauthOptions = {
 app.use(statelessauth(validator, statelessauthOptions));
 
 app.use(function * (next) {
-    console.log(this.user.name);
-    console.log(this.user.email);
-    console.log(this.user.role);
+    if (this.user) {
+        console.log(this.user.name);
+        console.log(this.user.email);
+        console.log(this.user.role);
+    }
     yield next;
 });
 ```

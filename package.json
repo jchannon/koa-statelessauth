@@ -12,6 +12,7 @@
     },
     "keywords": [
     "koa",
+        "koajs",
     "authorization",
     "token",
     "stateless",
