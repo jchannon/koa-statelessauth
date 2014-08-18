@@ -35,3 +35,6 @@ app.use(function * (next) {
     yield next;
 });
 ```
+
+**TODO:**
+Allow passthrough for cookie type authentication
