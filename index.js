@@ -22,6 +22,7 @@ function statelessauth(validator, options) {
             //Can't yield from normal function
             if (ignorePathMatched) {
                 yield next;
+                return;
             }
         }
 
