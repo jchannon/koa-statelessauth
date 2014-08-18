@@ -39,6 +39,12 @@ function statelessauth(validator, options) {
             return;
         }
 
+        if (!validator || !validator.validate) {
+            this.status = 401;
+            console.log('no validator');
+            return;
+        }
+
         var claims = validator.validate(authheader);
 
         if (!claims) {

@@ -29,6 +29,7 @@ function * nextFunc() {
 
 describe('StatelessAuth', function () {
 
+
     it('should return next func result if ignore path matched', function () {
 
         var statelessauthOptions = {
@@ -83,6 +84,40 @@ describe('StatelessAuth', function () {
         fn.next();
 
         assert.equal(401, emptythis.status);
+    });
+
+    it('should return 401 if validator not passed in', function () {
+
+        var emptythis = {
+            path: "/",
+            get: function (headername) {
+                return 'verifiedheadertoken';
+            }
+        };
+
+        var fn = statelessauth().bind(emptythis)(nextFunc);
+
+        fn.next();
+
+        assert.equal(401, emptythis.status);
+
+    });
+
+    it('should return 401 if validate function not passed in', function () {
+
+        var emptythis = {
+            path: "/",
+            get: function (headername) {
+                return 'verifiedheadertoken';
+            }
+        };
+
+        var fn = statelessauth({}).bind(emptythis)(nextFunc);
+
+        fn.next();
+
+        assert.equal(401, emptythis.status);
+
     });
 
     it('should return user if validator does validate', function () {
