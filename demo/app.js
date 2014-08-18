@@ -1,6 +1,8 @@
 'use strict';
 var route = require('koa-route');
 var koa = require('koa');
+var serve = require('koa-static');
+var path = require('path');
 var login = require('./login.js');
 var home = require('./index.js');
 var statelessauth = require('../index.js');
@@ -23,6 +25,9 @@ var statelessauthOptions = {
     ignorePaths: ["/login"]
 };
 
+// Serve static files
+app.use(serve(path.join(__dirname, 'public')));
+
 app.use(statelessauth(validator, statelessauthOptions));
 
 app.use(function * (next) {
@@ -37,6 +42,7 @@ app.use(function * (next) {
 app.use(route.get('/', home.home));
 app.use(route.post('/login', login.login));
 //app.use(route.get('/messages/:id', messages.fetch));
+
 
 if (!module.parent) {
     app.listen(3000);
