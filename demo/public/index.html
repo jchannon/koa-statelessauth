@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="koaauth">
 
 <head>
     <title>Untitled Document</title>
     <meta charset="UTF-8">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
+
 </head>
 
 <body>
-    <h1>YO</h1>
-    <form action="/login" method="post">
-        <label for="name">Name</label>
-        <input type="text" name="name" />
-        <label for="name">Password</label>
-        <input type="password" name="passord" />
-    </form>
+    <div ng-controller="AuthController">
+        <h1>YO</h1>
+        <form ng-submit="submit()">
+            <label for="name">Name</label>
+            <input type="text" name="username" ng-model='username' />
+            <label for="name">Password</label>
+            <input type="password" name="password" ng-model='password' />
+            <input type="submit" value="Submit" />
+        </form>
+        <p ng-show="token.length > 0">Can now access secure page</p>
+        <p ng-show="token.length === 0">Can't access secure page</p>
+        <button ng-click="gosecure()">Go to secure page</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

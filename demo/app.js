@@ -39,7 +39,7 @@ app.use(function * (next) {
     yield next;
 });
 
-app.use(route.get('/', home.home));
+app.use(route.get('/secure', home.home));
 app.use(route.post('/login', login.login));
 //app.use(route.get('/messages/:id', messages.fetch));
 
