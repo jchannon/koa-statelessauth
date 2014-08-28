@@ -9,7 +9,7 @@ var statelessauth = require('statelessauth');
 
 var validator = {
     validate: function (token) {
-        //This should go t a DB etc to get your user based on token
+        //This should go to a DB etc to get your user based on token
         if (token === '123') {
             return;
         }
