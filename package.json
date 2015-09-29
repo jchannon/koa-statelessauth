@@ -1,6 +1,6 @@
 {
     "name": "koa-statelessauth",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "This is a stateless auth library for koa.  If there is no Authorization header or if is empty it will return 401 status code.  The library accepts a validator object with a validate function. Pass in your own object to determine how it validates.  If the validator does not return a user object a 401 is returned;  You can also pass in an optional options object that can define paths to ignore and therefore yield to the next function without validating the request.",
     "main": "index.js",
     "scripts": {
