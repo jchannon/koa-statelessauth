@@ -9,8 +9,8 @@ function statelessauth(validator, options) {
             var ignorePathMatched = false;
             var path = this.path;
             options.ignorePaths.some(function (element) {
-                console.log("path=" + path);
-                console.log("ignorepath=" + element);
+                options.verbose && console.log("path=" + path);
+                options.verbose && console.log("ignorepath=" + element);
                 var match = minimatch(path, element);
                 if (match) {
                     console.log("matched");
@@ -30,19 +30,19 @@ function statelessauth(validator, options) {
         var authheader = this.get("Authorization");
         if (this.get("Authorization") === undefined) {
             this.status = 401;
-            console.log('no header');
+            options.verbose && console.log('no header');
             return;
         }
 
         if (authheader === '') {
             this.status = 401;
-            console.log('empty header');
+            options.verbose && console.log('empty header');
             return;
         }
 
         if (!validator || !validator.validate) {
             this.status = 401;
-            console.log('no validator');
+            options.verbose && console.log('no validator');
             return;
         }
 
@@ -50,7 +50,7 @@ function statelessauth(validator, options) {
 
         if (!claims) {
             this.status = 401;
-            console.log('validator failed');
+            options.verbose && console.log('validator failed');
             return;
         }
 
