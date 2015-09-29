@@ -37,5 +37,12 @@ app.use(function * (next) {
 });
 ```
 
-**TODO:**
+##statelessauthOptions
+
+* __ignorePaths:__ ( default: *[]* ) Array of Paths, that are ignored by the Authentification.
+* __verbose:__ ( default: *false* ) Show verbose consolelogs if true.
+
+
+
+##TODO
 Allow passthrough for cookie type authentication
