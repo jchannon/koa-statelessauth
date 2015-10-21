@@ -13,7 +13,7 @@ function statelessauth(validator, options) {
                 options.verbose && console.log("ignorepath=" + element);
                 var match = minimatch(path, element);
                 if (match) {
-                    console.log("matched");
+                    options.verbose && console.log("matched");
                     ignorePathMatched = true;
                     return true;
                 }
